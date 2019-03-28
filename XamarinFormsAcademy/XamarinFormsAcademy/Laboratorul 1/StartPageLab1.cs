@@ -1,5 +1,9 @@
 ﻿
+using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
+using MyProject;
+using Rg.Plugins.Popup.Services;
 
 namespace XamarinFormsAcademy.Laboratorul_1
 {
@@ -28,13 +32,18 @@ namespace XamarinFormsAcademy.Laboratorul_1
                         VerticalOptions = LayoutOptions.CenterAndExpand,
                         // Comanda este o comanda de navigare catre noua pagina
                         Command = new Command(
-                            () => App.NavigationMethod.PushAsync(new TabbedPageLab1())
+                            async () => await PopupNavigation.Instance.PushAsync(new MyPopupPage())
                             )
+
+                       
                     }
                 }
             };
 
+
             // Va recomand sa va jucati cu toate tipurile de pagina 
         }
     }
+
+    
 }
